@@ -27,7 +27,7 @@ extern "C" {
 #define pb_Left     PORTAbits.RA3
 #define pb_Right    PORTAbits.RA4
     
-#define motor_Left()        LATCbits.LATC3 = 1;     // Use macro to define
+#define motor_Left()        LATCbits.LATC3 = 1; // Use macro to define motor direction
 #define motor_Right()       LATCbits.LATC3 = 0;
 
 
