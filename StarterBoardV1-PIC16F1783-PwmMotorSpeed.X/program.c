@@ -346,14 +346,13 @@ void motor_Initialize(void) {
     T2CONbits.T2OUTPS = 0;      // Set timer 2 output postscaler ratio to 1:1
     T2CONbits.T2CKPS = 2;       // Set timer 2 clock prescaler to 16
     
-    PR2 = 0xFF;                 // Set timer 2 period register to 0xFF
+    PR2 = 0xFF;                 // Set timer 2 period register to 0xFF - Page 189
     
-    T2CONbits.TMR2ON = 1;       // Turn on timer 2 module
+    CCP1CONbits.CCP1M = 12;     // Set CCP register to use PWM mode - Page 255
     
-    // Datasheet page 255
-    CCP1CONbits.CCP1M = 12;     // Set CCP register to use PWM mode
-	
-    delay_x1o5us(2); // Wait for CCP module configuration - Page 373 from I/O pin timing
+    T2CONbits.TMR2ON = 1;       // Turn on timer 2 module - Page 188
+    
+    delay_x1o5us(2); // Wait for timer 2 and CCP module configuration - Page 373 from I/O pin timing
                      // Tioz = 2us
 }
 
