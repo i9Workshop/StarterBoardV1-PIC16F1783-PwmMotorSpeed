@@ -352,6 +352,9 @@ void motor_Initialize(void) {
     
     // Datasheet page 255
     CCP1CONbits.CCP1M = 12;     // Set CCP register to use PWM mode
+	
+    delay_x1o5us(2); // Wait for CCP module configuration - Page 373 from I/O pin timing
+                     // Tioz = 2us
 }
 
 void motor_SetSpeed(uint16_t pwm) {
