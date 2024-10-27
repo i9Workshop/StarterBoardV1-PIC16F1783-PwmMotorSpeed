@@ -357,6 +357,6 @@ void motor_Initialize(void) {
 }
 
 void motor_SetSpeed(uint16_t pwm) {
-    CCPR1L = (uint8_t)(pwm>>2);     // CCPR1L is the MSB of the PWM duty cycle
-    CCP1CONbits.DC1B = pwm & 0x03;  // DC1B is the LSB of the PWM duty cycle
+    CCPR1L = (uint8_t)(pwm>>2);     // CCPR1L is the MSB of the PWM duty cycle - Page 252
+    CCP1CONbits.DC1B = pwm & 0x03;  // DC1B is the LSB of the PWM duty cycle - Page 255
 }
